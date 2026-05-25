@@ -1,26 +1,187 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --black-night: #08080C;
+  --charcoal: #2C2A38;
+  --slate: #94929E;
+  --white: #FFFFFF;
+  --blue-primary: #1B3A8C;
+  --blue-electric: #2563EB;
+  --rose-intense: #E91E8C;
+  --rose-light: #FF6BB5;
+  --gradient-sig: linear-gradient(90deg, #1B3A8C 0%, #2563EB 33%, #E91E8C 66%, #FF6BB5 100%);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-black-night: var(--black-night);
+  --color-charcoal: var(--charcoal);
+  --color-slate: var(--slate);
+  --color-white: var(--white);
+  --color-blue-primary: var(--blue-primary);
+  --color-blue-electric: var(--blue-electric);
+  --color-rose-intense: var(--rose-intense);
+  --color-rose-light: var(--rose-light);
+  --font-display: var(--font-barlow);
+  --font-body: var(--font-bebas);
+  --font-mono: var(--font-jetbrains);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+/* ── Glow animations ── */
+@keyframes glow-right {
+  0%, 100% { transform: scale(1) translateX(0); }
+  50%       { transform: scale(1.15) translateX(30px); }
+}
+@keyframes glow-left {
+  0%, 100% { transform: scale(1) translateX(0); }
+  50%       { transform: scale(1.2) translateX(-20px); }
+}
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* ── Hero entrance ── */
+@keyframes hero-scale {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fade-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes letter-space {
+  from { opacity: 0; letter-spacing: 0.6em; }
+  to   { opacity: 1; letter-spacing: 0.3em; }
+}
+@keyframes nav-drop {
+  from { opacity: 0; transform: translateY(-60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.25,0.1,0.25,1),
+              transform 0.7s cubic-bezier(0.25,0.1,0.25,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.5s cubic-bezier(0.25,0.1,0.25,1),
+              transform 0.5s cubic-bezier(0.25,0.1,0.25,1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* pilier bar */
+.pillar-bar {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.6s cubic-bezier(0.25,0.1,0.25,1);
+}
+.pillar-bar.visible {
+  transform: scaleY(1);
+}
+
+/* ── Accessibilité : focus visible ── */
+/* Désactive l'outline natif seulement au clic souris, le conserve au clavier */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid #E91E8C;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Focus spécifique pour inputs / textarea / select */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #E91E8C;
+  outline-offset: 0;
+  border-color: rgba(233,30,140,0.6) !important;
+}
+
+/* Amélioration contraste texte muted sur fond sombre */
+/* text-white/60 → trop faible, on monte à /75 via classe utilitaire */
+.text-readable {
+  color: rgba(255,255,255,0.75);
+}
+
+/* Reduced motion : désactive toutes les animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .reveal-left {
+    opacity: 1;
+    transform: none;
+  }
+  .pillar-bar {
+    transform: scaleY(1);
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--black-night);
+  color: var(--white);
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  overflow-x: hidden;
+}
+
+.gradient-text {
+  background: var(--gradient-sig);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: var(--gradient-sig);
+}
+
+.gradient-border {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--gradient-sig);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
