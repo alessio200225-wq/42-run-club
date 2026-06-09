@@ -55,9 +55,6 @@ const FORMULES = [
     features:[
       "Tous les avantages de la formule Progression",
       "Ajustements hebdomadaires du programme",
-      "Analyse approfondie des données d'entraînement",
-      "Feedback personnalisé hebdomadaire",
-      "Conseils récupération et prévention des blessures",
       "1 entretien téléphonique individuel par mois",
       "Assistance prioritaire via WhatsApp",
       "Réponse sous 24h ouvrées",
