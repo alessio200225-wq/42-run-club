@@ -37,10 +37,10 @@ const PILLARS = [
 ];
 
 const FORMULES = [
-  { num:"N°01", tag:"Entrée",           name:"ESSENTIELLE", cta:"COMMENCER", featured:false,
+  { num:"N°01", tag:"Entrée",           name:"PROGRESSION", cta:"COMMENCER", featured:false,
     sub:"Pour démarrer ou structurer une routine d'entraînement avec un plan vraiment fait pour vous.",
     features:["Plan d'entraînement personnalisé","Ajustement bimensuel","Accès à l'application 33K","Questions illimitées via WhatsApp","Bibliothèque vidéo technique"] },
-  { num:"N°02", tag:"Évolutif",         name:"SUIVI",       cta:"CHOISIR",   featured:false,
+  { num:"N°02", tag:"Évolutif",         name:"PERFORMANCE", cta:"CHOISIR",   featured:false,
     sub:"Pour progresser sans plateau — votre plan évolue avec vos sensations, semaine après semaine.",
     features:["Plan évolutif continu","Ajustements hebdomadaires","Feedback détaillé après chaque séance","Échanges WhatsApp + 1 visio / mois","Analyse cardio & allures"] },
   { num:"N°03", tag:"Signature·Premium",name:"PREMIUM",     cta:"POSTULER",  featured:true,
