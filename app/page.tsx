@@ -37,15 +37,46 @@ const PILLARS = [
 ];
 
 const FORMULES = [
-  { num:"N°01", tag:"Entrée",           name:"PROGRESSION", cta:"COMMENCER", featured:false,
-    sub:"Pour démarrer ou structurer une routine d'entraînement avec un plan vraiment fait pour vous.",
-    features:["Plan d'entraînement personnalisé","Ajustement bimensuel","Accès à l'application 33K","Questions illimitées via WhatsApp","Bibliothèque vidéo technique"] },
-  { num:"N°02", tag:"Évolutif",         name:"PERFORMANCE", cta:"CHOISIR",   featured:false,
-    sub:"Pour progresser sans plateau — votre plan évolue avec vos sensations, semaine après semaine.",
-    features:["Plan évolutif continu","Ajustements hebdomadaires","Feedback détaillé après chaque séance","Échanges WhatsApp + 1 visio / mois","Analyse cardio & allures"] },
-  { num:"N°03", tag:"Signature·Premium",name:"PREMIUM",     cta:"POSTULER",  featured:true,
-    sub:"L'expérience la plus proche d'un coach physique. Coaching haut niveau, sur-mesure absolu.",
-    features:["Coaching très personnalisé","Analyse complète des données","Ajustements en temps réel","Disponibilité prioritaire","1 à 2 visios / mois","Préparation course objectif"] },
+  { num:"N°01", tag:"Entrée", name:"PROGRESSION", price:"89€/mois", cta:"COMMENCER", featured:false,
+    sub:"L'essentiel pour progresser avec un plan d'entraînement personnalisé et un suivi professionnel.",
+    features:[
+      "Entretien initial de découverte",
+      "Programme d'entraînement 100% personnalisé",
+      "Running, Trail, HYROX ou Triathlon",
+      "Synchronisation avec votre montre GPS",
+      "Analyse des données via application (FC, allures, RPE, charge...)",
+      "Plateforme de suivi smartphone & ordinateur",
+      "Ajustement bi-mensuel du programme",
+      "Assistance via WhatsApp",
+      "Réponse sous 48h ouvrées",
+    ]},
+  { num:"N°02", tag:"Évolutif", name:"PERFORMANCE", price:"109€/mois", cta:"CHOISIR", featured:false,
+    sub:"Un accompagnement renforcé pour optimiser votre progression et rester pleinement encadré.",
+    features:[
+      "Tous les avantages de la formule Progression",
+      "Ajustements hebdomadaires du programme",
+      "Analyse approfondie des données d'entraînement",
+      "Feedback personnalisé hebdomadaire",
+      "Conseils récupération et prévention des blessures",
+      "1 entretien téléphonique individuel par mois",
+      "Assistance prioritaire via WhatsApp",
+      "Réponse sous 24h ouvrées",
+      "Accompagnement par des coachs de haut niveau",
+    ]},
+  { num:"N°03", tag:"Signature·Premium", name:"PREMIUM", price:"149€/mois", cta:"POSTULER", featured:true,
+    sub:"L'accompagnement le plus complet pour atteindre vos objectifs les plus ambitieux.",
+    features:[
+      "Tous les avantages de la formule Performance",
+      "Analyse avancée de la performance et du suivi",
+      "Conseils nutrition, hydratation et stratégie de course",
+      "Préparation personnalisée des compétitions",
+      "Suivi prioritaire",
+      "Assistance VIP via WhatsApp",
+      "Réponse sous 12h ouvrées",
+      "2 entretiens téléphoniques individuels par mois",
+      "1 visioconférence thématique par mois",
+      "Accompagnement par des coachs et sportifs de haut niveau",
+    ]},
 ];
 
 const DISTANCES = [
@@ -230,7 +261,7 @@ export default function Home() {
                   style={{ fontSize:"clamp(32px,5vw,52px)", ...(f.featured ? { background:"linear-gradient(90deg,#E91E8C,#FF6BB5)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" } : { color:"#fff" }) }}>
                   {f.name}
                 </h3>
-                <p className="font-[family-name:var(--font-jetbrains)] text-xs text-[#94929E] tracking-widest uppercase mb-4">/ mois</p>
+                <p className="font-[family-name:var(--font-barlow)] font-bold text-2xl text-white mb-4">{f.price}</p>
                 <p className="font-[family-name:var(--font-barlow)] font-bold uppercase text-sm leading-relaxed text-readable mb-8 flex-1">{f.sub}</p>
                 <ul className="space-y-3 mb-10">
                   {f.features.map((feat) => (
