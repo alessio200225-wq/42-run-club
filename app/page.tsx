@@ -65,9 +65,7 @@ const FORMULES = [
     features:[
       "Tous les avantages de la formule Performance",
       "Analyse avancée de la performance et du suivi",
-      "Conseils nutrition, hydratation et stratégie de course",
       "Préparation personnalisée des compétitions",
-      "Suivi prioritaire",
       "Assistance VIP via WhatsApp",
       "Réponse sous 12h ouvrées",
       "2 entretiens téléphoniques individuels par mois",
