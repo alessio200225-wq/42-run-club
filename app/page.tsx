@@ -138,7 +138,7 @@ export default function Home() {
           </p>
           <p className="font-[family-name:var(--font-barlow)] font-bold text-xl md:text-3xl uppercase tracking-wider"
             style={{ ...gText, background:"linear-gradient(90deg,#E91E8C,#FF6BB5)", animation:"fade-right 0.7s 0.75s ease both" }}>
-            Progression garantie.
+            ROUTE — TRAIL — HYROX — TRIATHLON
           </p>
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
             style={{ animation:"fade-up 0.6s 1s ease both" }}>
