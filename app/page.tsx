@@ -180,7 +180,7 @@ export default function Home() {
             {[
               { tag:"01 Concept",    text:"Un accompagnement 100% personnalisé, entièrement à distance — chaque plan est construit pour un seul coureur, jamais dupliqué.", accent:"#2563EB", delay:"0.1s" },
               { tag:"02 Philosophie",text:"Adapté au niveau, aux objectifs, au mode de vie, aux sensations. L'entraînement suit l'athlète — pas l'inverse.",                 accent:"#E91E8C", delay:"0.2s" },
-              { tag:"03 Promesse",   text:"Progresser efficacement, éviter les erreurs, atteindre ses objectifs — 5K ou marathon trail.",                                    accent:"#FF6BB5", delay:"0.3s" },
+              { tag:"03 Promesse",   text:"Progresser efficacement, éviter les erreurs, atteindre ses objectifs — 5K ou marathon trail. Hyrox et triathlon.",                                    accent:"#FF6BB5", delay:"0.3s" },
             ].map((item) => (
               <div key={item.tag} className="reveal border-t pt-6" style={{ borderColor:item.accent, transitionDelay:item.delay }}>
                 <p className="font-[family-name:var(--font-jetbrains)] text-xs tracking-widest uppercase mb-4" style={{ color:item.accent }}>{item.tag}</p>
