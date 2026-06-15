@@ -353,7 +353,7 @@ export default function Home() {
       {/* ── FOOTER ── */}
       <footer className="border-t border-white/5 px-6 md:px-12 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <Image src="/nouveau logo 42.png" alt="42 Run Club" width={40} height={40} className="object-contain" unoptimized />
-        <p className="font-[family-name:var(--font-jetbrains)] text-xs tracking-widest text-[#94929E] uppercase">Entraînement sur mesure. Progression garantie.</p>
+        <p className="font-[family-name:var(--font-jetbrains)] text-xs tracking-widest text-[#94929E] uppercase">Entraînement sur mesure. Route — Trail — Hyrox — Triathlon.</p>
       </footer>
     </main>
   );
