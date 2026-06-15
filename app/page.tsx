@@ -25,7 +25,7 @@ function useReveal(selector: string, options?: IntersectionObserverInit) {
 const NAV_LINKS = [
   { label: "Concept",  href: "#concept"  },
   { label: "Formules", href: "#formules" },
-  { label: "Distances",href: "#distances"},
+  { label: "Témoignages", href: "#temoignages" },
   { label: "Contact",  href: "#contact"  },
 ];
 
@@ -74,13 +74,39 @@ const FORMULES = [
     ]},
 ];
 
-const DISTANCES = [
-  { name:"5K",             detail:"Vitesse · 20-30 min",  accent:false },
-  { name:"10K",            detail:"Endurance · 40-60 min",accent:false },
-  { name:"SEMI",           detail:"21,1 km · Seuil",      accent:true  },
-  { name:"MARATHON",       detail:"42,2 km · Endurance",  accent:false },
-  { name:"TRAIL COURT",    detail:"15-30 km · Technique", accent:false },
-  { name:"MARATHON TRAIL", detail:"42+ km · D+ élevé",    accent:true  },
+const TEMOIGNAGES = [
+  {
+    photo: null,
+    prenom: "Prénom",
+    nom: "NOM",
+    niveau: "ÉLITE",
+    perf: { distance: "Marathon", chrono: "X:XX:XX" },
+    quote: "Témoignage à venir.",
+  },
+  {
+    photo: null,
+    prenom: "Prénom",
+    nom: "NOM",
+    niveau: "AMATEUR",
+    perf: { distance: "10K", chrono: "XX:XX" },
+    quote: "Témoignage à venir.",
+  },
+  {
+    photo: null,
+    prenom: "Prénom",
+    nom: "NOM",
+    niveau: "ÉLITE",
+    perf: { distance: "Trail", chrono: "X:XX:XX" },
+    quote: "Témoignage à venir.",
+  },
+  {
+    photo: null,
+    prenom: "Prénom",
+    nom: "NOM",
+    niveau: "AMATEUR",
+    perf: { distance: "Semi", chrono: "X:XX:XX" },
+    quote: "Témoignage à venir.",
+  },
 ];
 
 const GR = "linear-gradient(90deg,#1B3A8C 0%,#2563EB 33%,#E91E8C 66%,#FF6BB5 100%)";
@@ -277,27 +303,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── DISTANCES ── */}
-      <section id="distances" className="py-24 md:py-32 px-6 bg-[#2C2A38]/20">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="reveal font-[family-name:var(--font-barlow)] font-extrabold uppercase text-4xl md:text-6xl text-white mb-16" style={{ transitionDelay:"0.1s" }}>Objectifs de Course</h2>
-          <div>
-            {DISTANCES.map((d, i) => (
-              <div key={d.name} className="reveal-left flex items-center justify-between py-6 border-b border-white/10 hover:translate-x-3 transition-transform"
-                style={{ transitionDelay:`${i*0.07}s` }}>
-                <span className="font-[family-name:var(--font-barlow)] font-extrabold uppercase leading-none"
-                  style={{ fontSize:"clamp(32px,6vw,72px)", ...(d.accent ? { background:"linear-gradient(90deg,#E91E8C,#FF6BB5)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" } : { color:"#fff" }) }}>
-                  {d.name}
-                </span>
-                <span className="font-[family-name:var(--font-jetbrains)] text-xs tracking-widest text-[#94929E] uppercase">{d.detail}</span>
+      {/* ── TÉMOIGNAGES ── */}
+      <section id="temoignages" className="py-24 md:py-32 px-6 bg-[#2C2A38]/20">
+        <div className="max-w-6xl mx-auto">
+          <p className="reveal font-[family-name:var(--font-jetbrains)] text-xs tracking-widest text-[#94929E] uppercase mb-4">Ils courent avec nous</p>
+          <h2 className="reveal font-[family-name:var(--font-barlow)] font-extrabold uppercase text-4xl md:text-6xl text-white mb-16" style={{ transitionDelay:"0.1s" }}>Témoignages</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {TEMOIGNAGES.map((t, i) => (
+              <div key={i} className="reveal flex flex-col gap-6 border border-white/10 p-8 hover:border-white/20 transition-colors"
+                style={{ transitionDelay:`${i*0.1}s` }}>
+                {/* Header : photo + identité */}
+                <div className="flex items-center gap-5">
+                  {/* Photo */}
+                  <div className="relative shrink-0 w-16 h-16 rounded-full overflow-hidden border border-white/10">
+                    {t.photo ? (
+                      <Image src={t.photo} alt={`${t.prenom} ${t.nom}`} fill className="object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center"
+                        style={{ background:"linear-gradient(135deg,#1B3A8C,#E91E8C)" }}>
+                        <span className="font-[family-name:var(--font-barlow)] font-extrabold text-xl text-white">
+                          {t.prenom[0]}{t.nom[0]}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  {/* Identité */}
+                  <div className="flex flex-col gap-1 flex-1 min-w-0">
+                    <div className="flex items-center gap-3">
+                      <span className="font-[family-name:var(--font-barlow)] font-extrabold uppercase text-white text-lg leading-none">
+                        {t.prenom} {t.nom}
+                      </span>
+                      <span className="font-[family-name:var(--font-jetbrains)] text-[9px] tracking-widest uppercase px-2 py-0.5 shrink-0"
+                        style={t.niveau === "ÉLITE"
+                          ? { background:"linear-gradient(90deg,#1B3A8C,#2563EB)", color:"#fff" }
+                          : { border:"1px solid rgba(255,255,255,0.15)", color:"#94929E" }}>
+                        {t.niveau}
+                      </span>
+                    </div>
+                    {/* Meilleure perf */}
+                    <div className="flex items-baseline gap-2">
+                      <span className="font-[family-name:var(--font-jetbrains)] text-[10px] tracking-widest text-[#94929E] uppercase">{t.perf.distance}</span>
+                      <span className="font-[family-name:var(--font-barlow)] font-extrabold uppercase leading-none"
+                        style={{ fontSize:"clamp(18px,3vw,26px)", background:"linear-gradient(90deg,#E91E8C,#FF6BB5)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
+                        {t.perf.chrono}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                {/* Séparateur */}
+                <div className="h-px w-full" style={{ background:"linear-gradient(90deg,rgba(233,30,140,0.4),transparent)" }} />
+                {/* Citation */}
+                <p className="font-[family-name:var(--font-barlow)] font-bold text-white/80 text-base md:text-lg leading-relaxed uppercase">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
               </div>
             ))}
-          </div>
-          <div className="reveal flex flex-wrap gap-8 mt-10" style={{ transitionDelay:"0.4s" }}>
-            {["Route","Piste","Trail"].map((s) => (
-              <span key={s} className="font-[family-name:var(--font-jetbrains)] text-xs tracking-widest text-[#94929E] uppercase">{s}</span>
-            ))}
-            <span className="font-[family-name:var(--font-jetbrains)] text-xs tracking-widest text-[#94929E] uppercase ml-auto">Niveau Débutant+ → Élite</span>
           </div>
         </div>
       </section>
