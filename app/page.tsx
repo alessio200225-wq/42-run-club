@@ -330,8 +330,8 @@ export default function Home() {
               <label htmlFor="formule" className="font-[family-name:var(--font-jetbrains)] text-[10px] tracking-widest uppercase text-[#94929E]">Formule souhaitée</label>
               <select id="formule" className="bg-[#08080C] border border-white/10 outline-none px-6 py-4 font-[family-name:var(--font-jetbrains)] text-xs tracking-widest uppercase text-[#94929E] transition-colors">
                 <option value="">— Choisir —</option>
-                <option value="essentielle">Essentielle</option>
-                <option value="suivi">Suivi</option>
+                <option value="progression">Progression</option>
+                <option value="performance">Performance</option>
                 <option value="premium">Premium</option>
               </select>
             </div>
