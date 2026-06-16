@@ -97,7 +97,7 @@ const TEMOIGNAGES = [
       { distance: "Semi", chrono: "1:09:54" },
       { distance: "Marathon", chrono: "2:25:24" },
     ],
-    quote: "Témoignage à venir.",
+    quote: "Concilier haut niveau et vie de tous les jours demande une rigueur sans faille. 42 Run Club m'a offert un plan ajusté à chaque cycle, sans jamais sacrifier la récupération. Mon record sur marathon en est la preuve : le travail bien dosé paie toujours.",
   },
   {
     photo: null,
