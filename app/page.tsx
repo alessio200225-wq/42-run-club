@@ -85,7 +85,7 @@ const TEMOIGNAGES = [
       { distance: "10K", chrono: "29:56" },
       { distance: "Semi", chrono: "1:06:17" },
     ],
-    quote: "Témoignage à venir.",
+    quote: "Avant 42 Run Club, je stagnais. Le plan était construit pour moi, semaine après semaine — pas une méthode générique. En quelques mois j'ai descendu mon chrono sur 10K et explosé mon record sur semi. Le suivi fait toute la différence.",
   },
   {
     photo: null,
