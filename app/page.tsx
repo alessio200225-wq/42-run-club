@@ -89,10 +89,14 @@ const TEMOIGNAGES = [
   },
   {
     photo: null,
-    prenom: "Prénom",
-    nom: "NOM",
-    niveau: "AMATEUR",
-    perfs: [{ distance: "10K", chrono: "XX:XX" }],
+    prenom: "Clémence",
+    nom: "Calvin",
+    niveau: "ÉLITE",
+    perfs: [
+      { distance: "10K", chrono: "31:20" },
+      { distance: "Semi", chrono: "1:09:54" },
+      { distance: "Marathon", chrono: "2:25:24" },
+    ],
     quote: "Témoignage à venir.",
   },
   {
