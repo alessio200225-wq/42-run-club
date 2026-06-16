@@ -77,10 +77,13 @@ const FORMULES = [
 const TEMOIGNAGES = [
   {
     photo: null,
-    prenom: "Prénom",
-    nom: "NOM",
+    prenom: "ElHocine",
+    nom: "Zourkane",
     niveau: "ÉLITE",
-    perf: { distance: "Marathon", chrono: "X:XX:XX" },
+    perfs: [
+      { distance: "10K", chrono: "29:56" },
+      { distance: "Semi", chrono: "1:06:17" },
+    ],
     quote: "Témoignage à venir.",
   },
   {
@@ -88,7 +91,7 @@ const TEMOIGNAGES = [
     prenom: "Prénom",
     nom: "NOM",
     niveau: "AMATEUR",
-    perf: { distance: "10K", chrono: "XX:XX" },
+    perfs: [{ distance: "10K", chrono: "XX:XX" }],
     quote: "Témoignage à venir.",
   },
   {
@@ -96,7 +99,7 @@ const TEMOIGNAGES = [
     prenom: "Prénom",
     nom: "NOM",
     niveau: "ÉLITE",
-    perf: { distance: "Trail", chrono: "X:XX:XX" },
+    perfs: [{ distance: "Trail", chrono: "X:XX:XX" }],
     quote: "Témoignage à venir.",
   },
   {
@@ -104,7 +107,7 @@ const TEMOIGNAGES = [
     prenom: "Prénom",
     nom: "NOM",
     niveau: "AMATEUR",
-    perf: { distance: "Semi", chrono: "X:XX:XX" },
+    perfs: [{ distance: "Semi", chrono: "X:XX:XX" }],
     quote: "Témoignage à venir.",
   },
 ];
@@ -340,13 +343,17 @@ export default function Home() {
                         {t.niveau}
                       </span>
                     </div>
-                    {/* Meilleure perf */}
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-[family-name:var(--font-jetbrains)] text-[10px] tracking-widest text-[#94929E] uppercase">{t.perf.distance}</span>
-                      <span className="font-[family-name:var(--font-barlow)] font-extrabold uppercase leading-none"
-                        style={{ fontSize:"clamp(18px,3vw,26px)", background:"linear-gradient(90deg,#E91E8C,#FF6BB5)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
-                        {t.perf.chrono}
-                      </span>
+                    {/* Meilleures perfs */}
+                    <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
+                      {t.perfs.map((p, j) => (
+                        <div key={j} className="flex items-baseline gap-2">
+                          <span className="font-[family-name:var(--font-jetbrains)] text-[10px] tracking-widest text-[#94929E] uppercase">{p.distance}</span>
+                          <span className="font-[family-name:var(--font-barlow)] font-extrabold uppercase leading-none"
+                            style={{ fontSize:"clamp(18px,3vw,26px)", background:"linear-gradient(90deg,#E91E8C,#FF6BB5)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent", backgroundClip:"text" }}>
+                            {p.chrono}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
