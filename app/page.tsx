@@ -81,6 +81,7 @@ const TEMOIGNAGES = [
     nom: "Zourkane",
     niveau: "ÉLITE",
     perfs: [
+      { distance: "1500m", chrono: "3:37:57" },
       { distance: "10K", chrono: "29:56" },
       { distance: "Semi", chrono: "1:06:17" },
     ],
