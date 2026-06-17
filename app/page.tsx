@@ -173,12 +173,23 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 overflow-hidden">
+        {/* Vidéo de fond */}
+        <video
+          autoPlay muted loop playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ zIndex: 0 }}
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay sombre pour lisibilité */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background:"rgba(8,8,12,0.55)", zIndex: 1 }} />
         {/* glows CSS */}
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "radial-gradient(ellipse at 85% 20%, rgba(233,30,140,0.18) 0%, transparent 55%), radial-gradient(ellipse at 10% 75%, rgba(37,99,235,0.15) 0%, transparent 50%)"
+          background: "radial-gradient(ellipse at 85% 20%, rgba(233,30,140,0.18) 0%, transparent 55%), radial-gradient(ellipse at 10% 75%, rgba(37,99,235,0.15) 0%, transparent 50%)",
+          zIndex: 2
         }} />
 
-        <div className="relative z-10 text-center max-w-5xl mx-auto">
+        <div className="relative text-center max-w-5xl mx-auto" style={{ zIndex: 3 }}>
           {/* Logo */}
           <div className="flex justify-center mb-8"
             style={{ animation:"hero-scale 1s cubic-bezier(0.16,1,0.3,1) both" }}>
